@@ -25,7 +25,7 @@
                 </button>
 
                 <button
-                    class="btn btn-sm btn-success"
+                    class="btn btn-sm btn-danger"
                     @click="removeAllContacts"
                 >
                     <i class="fas fa-trash"></i> Xóa tất cả
@@ -75,7 +75,7 @@ export default{
                 return [name, email, address, phone].join("");
             });
         },
-        filterContacts() {
+        filteredContacts() {
             if(!this.searchText) return this.contacts;
             return this.contacts.filter((_contact, index) =>
                 this.contactStrings[index].includes(this.searchText)    
@@ -83,10 +83,10 @@ export default{
         },
         activeContact(){
             if(this.activeIndex < 0 ) return null;
-            return this.filterContacts[this.activeIndex];
+            return this.filteredContacts[this.activeIndex];
         },
         filteredContactsCount() {
-            return this.filterContacts.length;
+            return this.filteredContacts.length;
         },
     },
     methods: {
