@@ -17,9 +17,16 @@ const routes = [
         component: () => import("@/views/ContactEdit.vue"),
         props: true
     },
+    {
+        path: "/contacts/create",
+        name: "contact.add",
+        component: () => import("@/views/ContactAdd.vue"),
+        props: true // Truyền các biến trong $route.params vào làm props
+    },
 ];
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
 });
 export default router;
+
